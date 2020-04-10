@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Nothing to See Here</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <!-- Import Custom Font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IM Fell English SC">
+
+    <style>
+        #d6Output1 {
+            border-style: solid;
+            border-radius: 5px;
+            box-shadow: 2px 5px;
+            text-align: center;
+        }
+
+        #startingPopulation {
+            border-style: solid;
+            border-radius: 5px;
+            box-shadow: 2px 5px;
+            text-align: center;
+            font-size: larger;
+        }
+
+        #myButton {
+            height: 100px;
+            width: 100px;
+            display: inline-block;
+            vertical-align: top;
+            border-radius: 50%;
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 id="theHeading" class="text-center mb-5">Nothing to See Here</h2>
+                <hr class="mb-5">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <button id="myButton" class="btn btn-danger btn-lg">Next</button>
+                    </div>
+                </div>
+            </div>
+            <!--/row-->
+            <br><br><br><br>
+        </div>
+        <!--/col-->
+    </div>
+    <!--/row-->
+    <hr>
+    <p class="text-center">.<br>
+        <!-- <a class="small text-info d-inline-block" href="https://www.codeply.com/bootstrap-4-examples">More Bootstrap 4 Examples</a> -->
+    </p>
+
+    </div>
+    <!--/container-->
+    <script>
+        function rollD6() {
+            let result = Math.floor(Math.random() * 6 + 1);
+            return result;
+        }
+
+        var myDefaultText = "Nothing to See Here"
+        var curText = [
+            "I told you there is nothing to see here.",
+            "This game is boring.",
+            "GET OUT NOW!",
+            "I'm done.",
+            "It's going to repeat, you know.",
+            "3",
+            "2",
+            "1"];
+        
+        var myCount = 0
+        console.log("count: " + myCount)
+
+        $(document).ready(function () {
+            // validation example for Login form
+            $("#myButton").click(function (event) {
+                event.preventDefault();
+
+                var arraySize = curText.length
+
+                if (myCount >= arraySize) {
+                    myCount = 0
+                    $("#theHeading").html(myDefaultText)
+                    myCount++
+                    console.log("count: " + myCount)
+                } else {
+                    var newText = curText[myCount]
+                
+                    $("#theHeading").html(newText)
+                    myCount++
+                    console.log("count: " + myCount)
+                }
+
+            });
+        })
+
+        
+    </script>
+</body>
+
+</html>
